@@ -13,32 +13,27 @@ public class Cabina {
         personas.add(0, p);
     }
 
-    // Método solicitado
     public boolean agregarPersona(PersonasAbordo p) {
-        // Verificar límite de 10 personas
         if (personas.size() >= 10) {
             System.out.println("No se puede agregar más personas: límite de 10 alcanzado.");
             return false;
         }
 
-        // Calcular peso total actual
         double pesoActual = 0;
         for (PersonasAbordo persona : personas) {
             pesoActual += persona.getPeso();
         }
 
-        // Verificar límite de peso
         if (pesoActual + p.getPeso() > 850) {
             System.out.println("No se puede agregar a la persona: se supera el límite de 850 kg.");
             return false;
         }
 
-        // Si todo está correcto, agregar persona
         personas.add(p);
         return true;
     }
 
-    // MÉTODO PARA EL PUNTO 2: verificar si esta cabina cumple protocolos
+    // Verificación de protocolos para UNA cabina
     public boolean cumpleProtocolos() {
         if (personas.size() > 10) return false;
 
